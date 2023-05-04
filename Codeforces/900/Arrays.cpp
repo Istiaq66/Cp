@@ -7,24 +7,21 @@
 using namespace std;
 int main()
 {
-
-    ll n, c = 0;
-    cin >> n;
-
-    string s = to_string(n);
-
-    for (int i = 0; i < s.size(); i++)
+    ll n, m, j, k, f = 0;
+    cin >> n >> m >> j >> k;
+    ll a[n], b[m];
+    for (int i = 0; i < n; i++)
     {
-        if (s[i] == '4' || s[i] == '7')
-        {
-            c++;
-        }
+        cin >> a[i];
     }
-    if (c == n)
+    for (int i = 0; i < m; i++)
     {
-        cout << "YES";
+        cin >> b[i];
     }
-    else if (n % 4 == 0 || n % 7 == 0)
+    sort(a, a + n);
+    sort(b, b + m,greater<int>());
+
+    if (a[j-1] < b[k-1])
     {
         cout << "YES";
     }
@@ -32,4 +29,5 @@ int main()
     {
         cout << "NO";
     }
+
 }
