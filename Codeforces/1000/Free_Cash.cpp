@@ -8,32 +8,30 @@ using namespace std;
 int main()
 {
 
-    ll n;
+    ll n, h, m, c = 1, mx = 1;
+
     cin >> n;
-    ll a[n];
+
+    vector<pair<int, int>> v;
 
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> h >> m;
+        v.push_back(make_pair(h, m));
     }
-    sort(a, a + n, greater<int>());
 
-    ll c = 1, m = 0, r;
     for (int i = 0; i < n - 1; i++)
     {
-        if (a[i] == a[i + 1])
+        while ((i < n - 1) && (v[i].first == v[i + 1].first && v[i].second == v[i + 1].second))
         {
             c++;
-            if (m < c)
-            {
-                m = c;
-                r = a[i];
-            }
+            i++;
         }
-        else
+        if  (c > mx)
         {
-            c = 1;
+            mx = c;
         }
+        c = 1;
     }
-    cout << m <<" "<< r / m;
+    cout << mx;
 }

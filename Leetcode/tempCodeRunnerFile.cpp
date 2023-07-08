@@ -1,33 +1,20 @@
-///   ***   ---   ||         In the name of ALLAH        |||   ---   ***   ///
+ int x = 0;
+    sort(nums.begin(), nums.end());
 
-#include <bits/stdc++.h>
-#define ll long long int
-#define nl "\n"
-
-using namespace std;
-
-string removeStars(string s)
-{
-    ll n = s.size();
-    
-    for (int i = 0; i < n;)
+    for (int i = 0; i < nums.size(); i++)
     {
-        if (s[i] == '*')
+
+        while (nums[i] != nums[i + 1])
         {
-            s.erase(s.begin() + i);
-            s.erase(s.begin() + i - 1);
-            i=i-2;
+            x++;
+            i++;
+        }
+        if (x == 1)
+        {
+            return nums[i];
         }
         else
         {
-            i++;
+            x = 0;
         }
     }
-    return s;
-}
-int main()
-{
-    string s;
-    cin >> s;
-    cout << removeStars(s);
-}

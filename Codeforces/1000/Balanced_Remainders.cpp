@@ -35,29 +35,23 @@ int main()
 
         ll x = cnt0 + cnt1 + cnt2;
 
-        p1 = cnt0 - x;
-        p2 = cnt1 - x;
-        p3 = cnt2 - x;
+        x = x / 3;
 
-        ll r, move = 0;
+        ll move;
 
-        r = p1 + p2 + p3;
-
-        r = r / 3;
-
-        if (p1 < r)
+        if (cnt0 < x)
         {
-            move = abs(p1 - r);
+            move = abs(cnt0 - x);
         }
 
-        if (p2 < r)
+        if (cnt1 < x)
         {
-            move = move + abs(p2 - r);
+            move = move + abs(cnt1 - x);
         }
 
-        if (p3 < r)
+        if (cnt2 < x)
         {
-            move = move + abs(p3 - r);
+            move = move + abs(cnt2 - x);
         }
         cout << move << nl;
     }
