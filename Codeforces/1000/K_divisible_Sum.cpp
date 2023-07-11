@@ -12,31 +12,20 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n, k;
+        ll n, k, s;
         cin >> n >> k;
+
+        s = ceil((double)n / k);
+
+        k *= s;
 
         if (k % n == 0)
         {
-            cout << k << nl;
+            cout << k / n << nl;
         }
-        else if (n < k)
+        else
         {
             cout << (k / n) + 1 << nl;
-        }
-        else if (n > k)
-        {
-
-            ll i = 1;
-            while (k < n)
-            {
-                k = k * i;
-                i++;
-            }
-
-            if (n < k)
-            {
-                cout << (k / n) + 1 << nl;
-            }
         }
     }
 }

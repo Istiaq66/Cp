@@ -12,9 +12,12 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n, cnt0 = 0, cnt1 = 0, cnt2 = 0, p1, p2, p3;
+        ll n, cnt0 = 0, cnt1 = 0, cnt2 = 0;
+
         cin >> n;
+
         ll a[n];
+
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
@@ -33,26 +36,40 @@ int main()
             }
         }
 
-        ll x = cnt0 + cnt1 + cnt2;
-
-        x = x / 3;
-
-        ll move;
-
-        if (cnt0 < x)
+        if (cnt0 == cnt1 && cnt1 == cnt2)
         {
-            move = abs(cnt0 - x);
+            cout << 0 << nl;
         }
-
-        if (cnt1 < x)
+        else
         {
-            move = move + abs(cnt1 - x);
-        }
+            ll x, c = 0;
+            x = cnt0 + cnt1 + cnt2;
+            x = x / 3;
 
-        if (cnt2 < x)
-        {
-            move = move + abs(cnt2 - x);
+            while (1)
+            {
+                if (cnt0 == cnt1 && cnt1 == cnt2)
+                {
+                    break;
+                }
+                if (cnt0 > x)
+                {
+                    cnt0 = cnt0 - 1;
+                    cnt1 = cnt1 + 1;
+                }
+                else if (cnt1 > x)
+                {
+                    cnt1 = cnt1 - 1;
+                    cnt2 = cnt2 + 1;
+                }
+                else if (cnt2 > x)
+                {
+                    cnt2 = cnt2 - 1;
+                    cnt0 = cnt0 + 1;
+                }
+                c++;
+            }
+            cout << c << nl;
         }
-        cout << move << nl;
     }
 }
