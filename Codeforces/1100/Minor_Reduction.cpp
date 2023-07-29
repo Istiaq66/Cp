@@ -12,18 +12,12 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll x, y, a, b, r, m, n;
-        cin >> x >> y >> a >> b;
-
-        if (y > x)
+        string x, s;
+        cin >> x;
+        for (int i = 0; i < x.size() - 1; i++)
         {
-            swap(x, y);
+           
         }
-
-        m = (y * b) + ((x - y) * a);
-
-        n = (x + y) * a;
-
-        cout << min(m, n) << nl;
+     
     }
 }

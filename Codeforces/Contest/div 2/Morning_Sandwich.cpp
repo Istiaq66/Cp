@@ -12,18 +12,20 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll x, y, a, b, r, m, n;
-        cin >> x >> y >> a >> b;
+        ll b, c, h, ch, r = 0;
+        cin >> b >> c >> h;
 
-        if (y > x)
+        ch = c + h;
+
+        if (b <= ch)
         {
-            swap(x, y);
+            r = b + (b - 1);
+        }
+        else
+        {
+            r = ch + (ch + 1);
         }
 
-        m = (y * b) + ((x - y) * a);
-
-        n = (x + y) * a;
-
-        cout << min(m, n) << nl;
+        cout << r << nl;
     }
 }
