@@ -12,46 +12,38 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
+        ll n, sum = 0;
         cin >> n;
         vector<int> a;
-        vector<int> b;
-
+        vector<int> b(n, 1);
         for (int i = 0; i < n; i++)
         {
             ll x;
             cin >> x;
             a.push_back(x);
+            sum = a[i] + sum;
         }
-        b = a;
-        sort(b.begin(), b.end());
-        int f = 0;
+
+        ll f = 0, avg = sum / n;
+        ll x = 0;
         for (int i = 0; i < n; i++)
         {
-            if (a[i] != b[i])
+            if (a[i] == avg)
             {
-                f = 1;
+                x = x + avg;
+            }
+            if (x > sum)
+            {
                 break;
             }
         }
-        if (f)
+        if (f == 1)
         {
-            ll max = a[0];
-            for (int i = 0; i < n; i++)
-            {
-                if (a[i] > a[i + 1])
-                {
-                    if (max < a[i])
-                    {
-                        max = a[i];
-                    }
-                }
-            }
-            cout << max << nl;
+            cout << "No" << nl;
         }
         else
         {
-            cout << 0 << nl;
+            cout << "Yes" << nl;
         }
     }
 }

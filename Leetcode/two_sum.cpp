@@ -7,41 +7,54 @@
 using namespace std;
 int main()
 {
-    vector<int> nums = {3,2,4};
+    vector<int> nums = {3, 2, 4};
 
-    int target = abs(6);
+    int target = 6;
 
-    vector<int> a;
+    int a[2];
+    vector<int> c;
+    vector<int> c2;
 
-    int j, s, n = nums.size();
+    c = nums;
+    c2 = nums;
 
-    j = n - 1;
+    int l, r = 0, n = c2.size(), x, y;
 
-    for (int i = 0; i < n;)
+    l = n - 1;
+
+    sort(c.begin(), c.end());
+
+    while (l > r)
     {
-        s = abs(nums[i] + nums[j]);
-
-        if (s == target)
+        if (c[l] + c[r] == target)
         {
-            a.push_back(i);
-            a.push_back(j);
+            x = c[r];
+            y = c[l];
             break;
         }
-        else if (j < i)
+        else if (c[l] + c[r] > target)
         {
-            break;
+            l--;
         }
-        else if (s < target)
+        else if (c[l] + c[r] < target)
         {
-            i++;
-        }
-        else
-        {
-            j--;
+            r++;
         }
     }
 
-    for (int i = 0; i < a.size(); i++)
+    for (int i = 0; i < n; i++)
+    {
+        if (c2[i] == x)
+        {
+            a[0] = i;
+        }
+        if (c2[i] == y)
+        {
+            a[1] = i;
+        }
+    }
+
+    for (int i = 0; i < 2; i++)
     {
         cout << a[i];
     }
