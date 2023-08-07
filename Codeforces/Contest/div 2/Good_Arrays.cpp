@@ -12,7 +12,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n, sum = 0;
+        ll n, sum = 0, newsm = 0;
         cin >> n;
         vector<int> a;
         vector<int> b(n, 1);
@@ -21,29 +21,29 @@ int main()
             ll x;
             cin >> x;
             a.push_back(x);
-            sum = a[i] + sum;
+            sum = sum + a[i];
+            if (a[i] == 1)
+            {
+                a[i] = 2;
+            }
+            else
+            {
+                a[i] = 1;
+            }
+            newsm = newsm + a[i];
         }
 
-        ll f = 0, avg = sum / n;
-        ll x = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (a[i] == avg)
-            {
-                x = x + avg;
-            }
-            if (x > sum)
-            {
-                break;
-            }
-        }
-        if (f == 1)
+        if (newsm == 1)
         {
             cout << "No" << nl;
         }
-        else
+        else if (sum >= newsm)
         {
             cout << "Yes" << nl;
+        }
+        else
+        {
+            cout << "No" << nl;
         }
     }
 }
