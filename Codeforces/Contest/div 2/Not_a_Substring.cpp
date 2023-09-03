@@ -1,4 +1,4 @@
-///   ***   ---   ||         In the name of ALLAH        |||   ---   ***   ///
+//   ***   ---   ||         In the name of ALLAH        |||   ---   ***   //
 
 #include <bits/stdc++.h>
 #define ll long long int
@@ -21,24 +21,14 @@ int main()
 
         for (int i = 0; i < n; i++)
         {
-            if ('(' == s[i])
-            {
-                a++;
-            }
-            else if (')' == s[i])
-            {
-                b++;
-            }
             if (s[i] == s[i + 1])
             {
                 f++;
             }
         }
 
-        x = s;
-        sort(x.begin(), x.end());
 
-        if (x == s && a == b)
+        if (s=="()")
         {
             cout << "No" << nl;
         }
