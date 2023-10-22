@@ -9,8 +9,10 @@ int main()
 {
 
     ll n, c = 0;
+    cin >> n;
     string s;
-    for (int i = 0; i < s.size() - 1; i++)
+    cin >> s;
+    for (int i = 0; i < n - 1; i++)
     {
         if (s[i] == s[i + 1])
         {
